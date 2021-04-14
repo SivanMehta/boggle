@@ -59,10 +59,6 @@ function Dice() {
 }
 
 export default function Board() {
-  setTimeout(() => {
-    alert("done!")
-  }, 3 * 60 * 1000);
-
   return (
     <svg width={ width } height={ width }>
       <Cells />
