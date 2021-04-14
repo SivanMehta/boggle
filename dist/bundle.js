@@ -7746,7 +7746,7 @@
 	function Board() {
 	  setTimeout(() => {
 	    alert("done!");
-	  }, 3 * 1000);
+	  }, 3 * 60 * 1000);
 	  return /*#__PURE__*/react.createElement("svg", {
 	    width: width,
 	    height: width
