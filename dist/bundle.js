@@ -7731,7 +7731,8 @@
 	  shuffle(dice);
 	  const labels = dice.map((die, i) => {
 	    const letter = pick(die);
-	    const x = i % 4 * diceWidth + diceWidth / 4;
+	    const offset = letter === "Qu" ? -45 : 0;
+	    const x = i % 4 * diceWidth + diceWidth / 4 + offset;
 	    const y = (1 + Math.floor(i / 4)) * diceWidth - diceWidth / 4;
 	    return /*#__PURE__*/react.createElement("text", {
 	      x: x,
