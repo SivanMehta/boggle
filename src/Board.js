@@ -1,8 +1,8 @@
 import React from 'react';
 import { dice } from './utils';
 
-const width = 600;
-const diceWidth = 100;
+const width = 800;
+const diceWidth = 200;
 
 // randomly pick an element out of an array
 function pick(array) {
@@ -42,12 +42,12 @@ function Dice() {
   shuffle(dice);
   const labels = dice.map((die, i) => {
     const letter = pick(die);
-    const x = (i % 4) * diceWidth + diceWidth * .4
-    const y = Math.floor(i / 4) * diceWidth + diceWidth *.4;
+    const x = (i % 4) * diceWidth + diceWidth / 4;
+    const y = (1 +Math.floor(i / 4)) * diceWidth - diceWidth / 4;
     return (
       <text
         x={ x }
-        fontSize="3em"
+        fontSize="10em"
         textAnchor="center"
         y={ y }>
       { letter }
