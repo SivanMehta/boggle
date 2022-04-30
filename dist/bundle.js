@@ -7731,8 +7731,34 @@
 	  return /*#__PURE__*/react.createElement("table", null, /*#__PURE__*/react.createElement("tbody", null, rows));
 	}
 
+	function Link({
+	  children,
+	  href
+	}) {
+	  function onClick() {
+	    location.href = href;
+	  }
+
+	  return /*#__PURE__*/react.createElement("button", {
+	    onClick: onClick
+	  }, children);
+	}
+
 	function Difficulty() {
-	  return 'very hard';
+	  const url = window.location.origin + window.location.pathname;
+	  return (
+	    /*#__PURE__*/
+	    // <details>
+	    //   <summary>Difficulties</summary>
+	    react.createElement("div", null, /*#__PURE__*/react.createElement(Link, {
+	      href: `${url}?cells=3`
+	    }, "3x3"), /*#__PURE__*/react.createElement(Link, {
+	      href: `${url}?cells=4`
+	    }, "4x4"), /*#__PURE__*/react.createElement(Link, {
+	      href: `${url}?cells=5`
+	    }, "5x5")) // </details>
+
+	  );
 	}
 
 	function App() {
