@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Loading } from './utils';
 import Board from './Board';
+import Difficulty from './Difficulty';
 
 function App() {
   const [ready, setReady] = useState(false);
@@ -16,6 +17,7 @@ function App() {
   return (
     <Loading ready={ ready }>
       <Board />
+      <Difficulty />
     </Loading>
   );
 }

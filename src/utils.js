@@ -29,3 +29,11 @@ export const dice = [
 export function Loading({ children, ready, message='' }) {
   return ready ? children : (message);
 }
+
+const params = new Proxy(new URLSearchParams(window.location.search), {
+  get: (searchParams, prop) => searchParams.get(prop),
+});
+
+root.style.setProperty('--row-size', Math.min(window.innerWidth, 800) / 5 + "px");
+
+export const CELL_COUNT = params.cells || 4;

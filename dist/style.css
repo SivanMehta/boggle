@@ -3,7 +3,7 @@ td {
   width: calc(var(--row-size));
   text-align: center;
   vertical-align: middle;
-  font-size: 17vh;
+  font-size: 15vh;
   border: 1px solid black;
 }
 

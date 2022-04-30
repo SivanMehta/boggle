@@ -7683,6 +7683,11 @@
 	}) {
 	  return ready ? children : message;
 	}
+	const params = new Proxy(new URLSearchParams(window.location.search), {
+	  get: (searchParams, prop) => searchParams.get(prop)
+	});
+	root.style.setProperty('--row-size', Math.min(window.innerWidth, 800) / 5 + "px");
+	const CELL_COUNT = params.cells || 4;
 
 	function pick(array) {
 	  const idx = Math.floor(Math.random() * array.length);
@@ -7700,10 +7705,8 @@
 	    array[m] = array[i];
 	    array[i] = t;
 	  }
-	}
+	} // just a CELLS x CELLS table
 
-	root.style.setProperty('--row-size', Math.min(window.innerWidth, 800) / 4 + "px");
-	const CELL_COUNT = 4; // just a CELLS x CELLS table
 
 	function Board() {
 	  shuffle(dice);
@@ -7728,6 +7731,10 @@
 	  return /*#__PURE__*/react.createElement("table", null, /*#__PURE__*/react.createElement("tbody", null, rows));
 	}
 
+	function Difficulty() {
+	  return 'very hard';
+	}
+
 	function App() {
 	  const [ready, setReady] = react.useState(false);
 
@@ -7740,7 +7747,7 @@
 	  });
 	  return /*#__PURE__*/react.createElement(Loading, {
 	    ready: ready
-	  }, /*#__PURE__*/react.createElement(Board, null));
+	  }, /*#__PURE__*/react.createElement(Board, null), /*#__PURE__*/react.createElement(Difficulty, null));
 	}
 
 	reactDom.render( /*#__PURE__*/react.createElement(App, null), document.querySelector('#root'));

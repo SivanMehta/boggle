@@ -1,5 +1,5 @@
 import React from 'react';
-import { dice } from './utils';
+import { dice, CELL_COUNT } from './utils';
 
 // randomly pick an element out of an array
 function pick(array) {
@@ -16,9 +16,6 @@ function shuffle(array) {
     array[i] = t;
   }
 }
-
-root.style.setProperty('--row-size', Math.min(window.innerWidth, 800) / 4 + "px");
-const CELL_COUNT = 4;
 
 // just a CELLS x CELLS table
 export default function Board() {
