@@ -1,0 +1,13 @@
+td {
+  font-family: sans-serif;
+  width: calc(var(--row-size));
+  text-align: center;
+  vertical-align: middle;
+  font-size: 17vh;
+  border: 1px solid black;
+}
+
+tr {
+  width: var(--row-size);
+  height: var(--row-size);
+}

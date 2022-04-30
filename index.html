@@ -4,19 +4,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Play Boggle</title>
-    <style>
-      text {
-        font-family: auto;
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="dist/style.css">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-170143681-1"></script>
 		<script>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
+      const host = window.location.hostname;
+      if (host != "localhost") {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-		  gtag('config', 'UA-170143681-1');
+        gtag('config', 'UA-170143681-1');
+      }
     </script>
   </head>
   <body>

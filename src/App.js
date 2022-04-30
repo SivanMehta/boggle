@@ -14,11 +14,9 @@ function App() {
   });
 
   return (
-    <div className='container'>
-      <Loading ready={ ready }>
-        <Board />
-      </Loading>
-    </div>
+    <Loading ready={ ready }>
+      <Board />
+    </Loading>
   );
 }
 
