@@ -7675,7 +7675,7 @@
 	}
 	});
 
-	const dice = [["B", "J", "K", "Qu", "X", "Z"], ["A", "A", "E", "E", "E", "E"], ["A", "D", "E", "N", "N", "N"], ["A", "E", "E", "G", "M", "U"], ["A", "F", "I", "R", "S", "Y"], ["C", "E", "I", "L", "P", "T"], ["C", "E", "I", "P", "S", "T"], ["D", "H", "H", "L", "O", "R"], ["D", "H", "L", "N", "O", "R"], ["D", "H", "L", "N", "O", "R"], ["E", "I", "I", "I", "T", "T"], ["E", "M", "O", "T", "T", "T"], ["E", "N", "S", "S", "S", "U"], ["F", "I", "P", "R", "S", "Y"], ["G", "O", "R", "R", "V", "W"], ["N", "O", "O", "T", "U", "W"]];
+	const dice = [["Qu", "B", "Z", "I", "X", "K"], ["T", "O", "U", "O", "T", "O"], ["O", "V", "W", "R", "G", "R"], ["A", "R", "A", "F", "S", "R"], ["A", "U", "M", "E", "E", "G"], ["H", "H", "L", "R", "D", "O"], ["N", "H", "D", "T", "H", "O"], ["L", "E", "N", "R", "O", "D"], ["A", "F", "A", "I", "S", "R"], ["Y", "I", "F", "A", "S", "R"], ["T", "E", "L", "E", "C", "I"], ["S", "S", "N", "S", "E", "U"], ["R", "I", "Y", "P", "R", "H"], ["D", "O", "R", "D", "L", "N"], ["C", "C", "W", "N", "S", "T"], ["T", "T", "O", "T", "E", "M"], ["S", "C", "T", "I", "E", "P"], ["E", "A", "N", "D", "N", "N"], ["M", "N", "N", "E", "A", "G"], ["U", "O", "T", "O", "W", "N"], ["A", "E", "A", "E", "E", "E"], ["Y", "I", "F", "P", "S", "R"], ["E", "E", "E", "E", "M", "A"], ["I", "T", "I", "T", "I", "E"], ["E", "T", "I", "L", "I", "C"]];
 	function Loading({
 	  children,
 	  ready,
@@ -7713,11 +7713,16 @@
 	    const cells = [];
 
 	    for (let j = 0; j < CELL_COUNT; j++) {
-	      const letter = pick(dice[i * CELL_COUNT + j]);
-	      cells.push( /*#__PURE__*/react.createElement("td", null, letter));
+	      const idx = i * CELL_COUNT + j;
+	      const letter = pick(dice[idx]);
+	      cells.push( /*#__PURE__*/react.createElement("td", {
+	        key: 'cell' + idx
+	      }, letter));
 	    }
 
-	    rows.push( /*#__PURE__*/react.createElement("tr", null, cells));
+	    rows.push( /*#__PURE__*/react.createElement("tr", {
+	      key: i
+	    }, cells));
 	  }
 
 	  return /*#__PURE__*/react.createElement("table", null, /*#__PURE__*/react.createElement("tbody", null, rows));

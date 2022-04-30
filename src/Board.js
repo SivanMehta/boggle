@@ -27,14 +27,15 @@ export default function Board() {
   for (let i = 0; i < CELL_COUNT; i ++) {
     const cells = []
     for (let j = 0; j < CELL_COUNT; j ++) {
-      const letter = pick(dice[i * CELL_COUNT + j]);
+      const idx = i * CELL_COUNT + j;
+      const letter = pick(dice[idx]);
       cells.push((
-        <td>{ letter }</td>
+        <td key={ 'cell' + idx }>{ letter }</td>
       ));
     }
 
     rows.push((
-      <tr>{ cells }</tr>
+      <tr key={i}>{ cells }</tr>
     ));
   }
 
